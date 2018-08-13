@@ -29,7 +29,7 @@ module.exports = {
   },
   models: {
     schema: true,
-    connection: 'devMongodb',
+    connection: 'ops',
     migrate: 'safe'
   },
 
