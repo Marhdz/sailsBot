@@ -6,7 +6,7 @@
 
 module.exports.messenger = {
     fbApiVersion: "v2.10",
-    appSecret: "",
-    pageAccessToken: "",
-    validationToken: ""
+    appSecret: "219919575360390",
+    pageAccessToken: "EAADIBAQrI4YBAN35O1HHbQTLBEhGZAhEPnZB03Hqti4psdF7wQZBkFznOBvHDDErkMTPkbbcZBbFjeIew1KumZCZC7QOtHvRXHpIRbKMYhNVgNoMHXoctFoZAVlGFDPow5IiVUubniwXpgEEZCS3ZCkK1NBaBZCSDWYBRbhm1RXlLlcZCPULPfO5flo",
+    validationToken: "secret"
   };

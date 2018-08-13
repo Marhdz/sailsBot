@@ -34,9 +34,9 @@ module.exports.connections = {
     port: 27017,
     database: 'sails_bot_db'
   },
-  localDiskDb: {
-    adapter: 'sails-disk'
-  },
+  // localDiskDb: {
+  //   adapter: 'sails-disk'
+  // },
 
   /***************************************************************************
   *                                                                          *

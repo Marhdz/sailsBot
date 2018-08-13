@@ -26,7 +26,7 @@ module.exports = {
     },
     nlps: {
       type: "array"
-    }
+    },
   },
   beforeValidate: function (message, next) {
     if (message.nlps) {
@@ -44,4 +44,3 @@ module.exports = {
     next();
   }
 };
-

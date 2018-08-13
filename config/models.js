@@ -18,7 +18,9 @@ module.exports.models = {
   *                                                                          *
   ***************************************************************************/
   // connection: 'localDiskDb',
-
+    connection: 'devMongodb',
+    migrate: 'alter',
+    migrations: true,
   /***************************************************************************
   *                                                                          *
   * How and whether Sails will attempt to automatically rebuild the          *
