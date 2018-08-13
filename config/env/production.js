@@ -20,11 +20,12 @@ module.exports = {
   connections: {
     ops: {
       adapter: 'sails-mongo',
-      host: process.env.OPENSHIFT_MONGODB_DB_HOST || '127.10.247.2',
-      port: process.env.OPENSHIFT_MONGODB_DB_PORT || 27017,
-      user: 'my_db_user',
-      password: 'superLong&SecurePassword',
-      database: 'my_prod_db'
+      // host: process.env.OPENSHIFT_MONGODB_DB_HOST || '127.10.247.2',
+      // port: process.env.OPENSHIFT_MONGODB_DB_PORT || 27017,
+      // user: 'my_db_user',
+      // password: 'superLong&SecurePassword',
+      // database: 'my_prod_db'
+        url : 'mongodb://octocat:Thisis1password@ds259711.mlab.com:59711/notasdb',
     }
   },
   models: {

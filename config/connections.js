@@ -30,9 +30,10 @@ module.exports.connections = {
   ***************************************************************************/
  devMongodb: {
     adapter: 'sails-mongo',
-    host: 'localhost',
-    port: 27017,
-    database: 'sails_bot_db'
+    // host: 'localhost',
+    // port: 27017,
+    // database: 'sails_bot_db'
+      url : 'mongodb://octocat:Thisis1password@ds259711.mlab.com:59711/notasdb',
   },
   // localDiskDb: {
   //   adapter: 'sails-disk'
