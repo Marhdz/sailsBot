@@ -29,10 +29,10 @@ module.exports = {
   },
   models: {
     schema: true,
-    connection: 'ops',
+    connection: 'devMongodb',
     migrate: 'safe'
   },
-  
+
 
   /***************************************************************************
    * Set the port in the production environment to 80                        *
