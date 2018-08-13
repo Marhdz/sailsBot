@@ -74,8 +74,8 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  adapter: 'connect-mongo',
-  url: process.env.MONGODB_URI // user, password and port optional
+  // adapter: 'connect-mongo',
+  // url: process.env.MONGODB_URI // user, password and port optional
 
   /***************************************************************************
   *                                                                          *
