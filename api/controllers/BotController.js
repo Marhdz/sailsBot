@@ -38,45 +38,46 @@ module.exports = {
   },
   webhook: function (req, res) {
     var data = req.allParams();
-    data.entry.forEach(function (entry) {
-      entry.messaging.forEach(function (messaging) {
-        getUser(messaging.sender, function (err, user) {
-          if (err)
-            return sails.log.error(err);
-          if (messaging.message) {
-            // The boilerplate save all messages by default
-            return Message.create({
-              sender: user,
-              entry: entry.id,
-              text: messaging.message.text,
-              attachments: messaging.message.attachments,
-              payload: messaging.message.quick_reply ? messaging.message.quick_reply.payload : null,
-              nlps: messaging.message.nlp
-            }).exec(function (err, message) {
-              if (err)
-                return sails.log.error(err);
-              if (message.payload)
-                return handlePayload(user, message.payload);
-              if (message.text)
-                if (message.attachments)
-                  return handleFallback(user, message.text, message.attachments);
-                else
-                  return handleMessage(user, message.text, message.nlps);
-              if (message.attachments)
-                return handleAttachments(user, message.attachments);
-              return unreconizedCall(user, "messaging.message", message);
-            });
-          } else if (messaging.postback) {
-            return handlePayload(user, messaging.postback.payload);
-          } else if (messaging.delivery) {
-            return handleDelivery(user, messaging.delivery);
-          } else if (messaging.read) {
-            return handleRead(user, messaging.read);
-          } else
-            return unreconizedCall(user, "messaging", messaging);
-        });
-      });
-    });
+    console.log(data);
+    // data.entry.forEach(function (entry) {
+    //   entry.messaging.forEach(function (messaging) {
+    //     getUser(messaging.sender, function (err, user) {
+    //       if (err)
+    //         return sails.log.error(err);
+    //       if (messaging.message) {
+    //         // The boilerplate save all messages by default
+    //         return Message.create({
+    //           sender: user,
+    //           entry: entry.id,
+    //           text: messaging.message.text,
+    //           attachments: messaging.message.attachments,
+    //           payload: messaging.message.quick_reply ? messaging.message.quick_reply.payload : null,
+    //           nlps: messaging.message.nlp
+    //         }).exec(function (err, message) {
+    //           if (err)
+    //             return sails.log.error(err);
+    //           if (message.payload)
+    //             return handlePayload(user, message.payload);
+    //           if (message.text)
+    //             if (message.attachments)
+    //               return handleFallback(user, message.text, message.attachments);
+    //             else
+    //               return handleMessage(user, message.text, message.nlps);
+    //           if (message.attachments)
+    //             return handleAttachments(user, message.attachments);
+    //           return unreconizedCall(user, "messaging.message", message);
+    //         });
+    //       } else if (messaging.postback) {
+    //         return handlePayload(user, messaging.postback.payload);
+    //       } else if (messaging.delivery) {
+    //         return handleDelivery(user, messaging.delivery);
+    //       } else if (messaging.read) {
+    //         return handleRead(user, messaging.read);
+    //       } else
+    //         return unreconizedCall(user, "messaging", messaging);
+    //     });
+    //   });
+    // });
     res.ok();
   }
 };
@@ -106,9 +107,9 @@ var getUser = function (sender, cb) {
 /*
  * Postback Event
  *
- * This event is called when a postback is tapped on a Structured Message. 
+ * This event is called when a postback is tapped on a Structured Message.
  * https://developers.facebook.com/docs/messenger-platform/webhook-reference/postback-received
- * 
+ *
  */
 var handlePayload = function (user, payload) {
   // case of with parses
@@ -116,7 +117,7 @@ var handlePayload = function (user, payload) {
 /*
  * Implement your message recieved bot logic here
  * The message is either a text or an attachement
- * https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-received 
+ * https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-received
  */
 var handleMessage = function (user, text, nlps) {
   if(text.match(/hi/i))
@@ -170,7 +171,7 @@ var handleDelivery = function (user, delivery) {
  *
  * This event is called when a previously-sent message has been read.
  * https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-read
- * 
+ *
  */
 var handleRead = function (user, read) {
   sails.log.info("Message read by: " + user.first_name + " " + user.last_name + " at " + new Date().toDateString());
