@@ -125,7 +125,7 @@ var handleMessage = function (user, text, nlps) {
     // you can implement your own selection of the topic
     var nlp = nlps[0];
     if(nlp.topic === "greeting") {
-      return sendAPI.text(user, 'Hi', fallback);
+      return sendAPI.text(user, 'Hi!', fallback);
     }
   } else {
     return unreconizedCall(user, "messaging.text", text);
