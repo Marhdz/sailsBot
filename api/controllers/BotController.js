@@ -119,13 +119,13 @@ var handlePayload = function (user, payload) {
  * https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-received
  */
 var handleMessage = function (user, text, nlps) {
-  if(text.match(/hi/i))
-    return sendAPI.text(user, 'Hi '+ user.first_name+"!", fallback);
+  if(text.match(/hola|buenas|buenos/i))
+    return sendAPI.text(user, 'Hola '+ user.first_name+"!", fallback);
   if(nlps.length) {
     // you can implement your own selection of the topic
     var nlp = nlps[0];
     if(nlp.topic === "greeting") {
-      return sendAPI.text(user, 'Hi!', fallback);
+      return sendAPI.text(user, 'Hola!', fallback);
     }
   } else {
     return unreconizedCall(user, "messaging.text", text);
