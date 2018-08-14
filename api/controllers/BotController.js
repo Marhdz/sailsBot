@@ -38,46 +38,45 @@ module.exports = {
   },
   webhook: function (req, res) {
     var data = req.allParams();
-    console.log(data);
-    // data.entry.forEach(function (entry) {
-    //   entry.messaging.forEach(function (messaging) {
-    //     getUser(messaging.sender, function (err, user) {
-    //       if (err)
-    //         return sails.log.error(err);
-    //       if (messaging.message) {
-    //         // The boilerplate save all messages by default
-    //         return Message.create({
-    //           sender: user,
-    //           entry: entry.id,
-    //           text: messaging.message.text,
-    //           attachments: messaging.message.attachments,
-    //           payload: messaging.message.quick_reply ? messaging.message.quick_reply.payload : null,
-    //           nlps: messaging.message.nlp
-    //         }).exec(function (err, message) {
-    //           if (err)
-    //             return sails.log.error(err);
-    //           if (message.payload)
-    //             return handlePayload(user, message.payload);
-    //           if (message.text)
-    //             if (message.attachments)
-    //               return handleFallback(user, message.text, message.attachments);
-    //             else
-    //               return handleMessage(user, message.text, message.nlps);
-    //           if (message.attachments)
-    //             return handleAttachments(user, message.attachments);
-    //           return unreconizedCall(user, "messaging.message", message);
-    //         });
-    //       } else if (messaging.postback) {
-    //         return handlePayload(user, messaging.postback.payload);
-    //       } else if (messaging.delivery) {
-    //         return handleDelivery(user, messaging.delivery);
-    //       } else if (messaging.read) {
-    //         return handleRead(user, messaging.read);
-    //       } else
-    //         return unreconizedCall(user, "messaging", messaging);
-    //     });
-    //   });
-    // });
+    data.entry.forEach(function (entry) {
+      entry.messaging.forEach(function (messaging) {
+        getUser(messaging.sender, function (err, user) {
+          if (err)
+            return sails.log.error(err);
+          if (messaging.message) {
+            // The boilerplate save all messages by default
+            return Message.create({
+              sender: user,
+              entry: entry.id,
+              text: messaging.message.text,
+              attachments: messaging.message.attachments,
+              payload: messaging.message.quick_reply ? messaging.message.quick_reply.payload : null,
+              nlps: messaging.message.nlp
+            }).exec(function (err, message) {
+              if (err)
+                return sails.log.error(err);
+              if (message.payload)
+                return handlePayload(user, message.payload);
+              if (message.text)
+                if (message.attachments)
+                  return handleFallback(user, message.text, message.attachments);
+                else
+                  return handleMessage(user, message.text, message.nlps);
+              if (message.attachments)
+                return handleAttachments(user, message.attachments);
+              return unreconizedCall(user, "messaging.message", message);
+            });
+          } else if (messaging.postback) {
+            return handlePayload(user, messaging.postback.payload);
+          } else if (messaging.delivery) {
+            return handleDelivery(user, messaging.delivery);
+          } else if (messaging.read) {
+            return handleRead(user, messaging.read);
+          } else
+            return unreconizedCall(user, "messaging", messaging);
+        });
+      });
+    });
     res.ok();
   }
 };
