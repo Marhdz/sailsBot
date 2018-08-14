@@ -64,7 +64,7 @@ module.exports = {
           type: "template",
           payload: {
             template_type: "button",
-            text: "Hello, and welcome",
+            text: "Hola!",
             buttons: [{
               type: "postback",
               title: "Start",
@@ -82,7 +82,18 @@ module.exports = {
         id: user.fbId
       },
       message: {
-        text: text
+        attachment: {
+          type: "template",
+          payload: {
+            template_type: "button",
+            text: text,
+            buttons: [{
+              type: "postback",
+              title: "Ver productos",
+              payload: "Ver productos"
+            }]
+          }
+        }
       }
     };
     this.send(messageData, done);

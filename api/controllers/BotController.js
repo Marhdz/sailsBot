@@ -120,7 +120,7 @@ var handlePayload = function (user, payload) {
  */
 var handleMessage = function (user, text, nlps) {
   if(text.match(/hi/i))
-    return sendAPI.text(user, 'Hi '+ user.first_name, fallback);
+    return sendAPI.text(user, 'Hi '+ user.first_name+"!", fallback);
   if(nlps.length) {
     // you can implement your own selection of the topic
     var nlp = nlps[0];
