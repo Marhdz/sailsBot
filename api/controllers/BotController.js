@@ -144,7 +144,7 @@ var verWebvie = function(user,text,nlps){
   if (text.match(/webview/i))
     return sendAPI.webv(user,fallback);
 }
-
+}
 var handleAttachments = function (user, attachments) {
   attachments.forEach(function (attachment) {
     if (attachment.type === 'location') {
