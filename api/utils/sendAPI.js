@@ -134,8 +134,9 @@ module.exports = {
             text:"Try the URL button!",
             buttons:[{
                 type:"web_url",
-                url:"https://limitless-mesa-41826.herokuapp.com",
                 title:"Webview",
+                url:"https://limitless-mesa-41826.herokuapp.com",
+                messenger_extensions:true,
                 webview_height_ratio: "compact"
             }]
           }

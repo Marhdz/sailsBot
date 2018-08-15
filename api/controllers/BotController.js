@@ -135,18 +135,6 @@ var handleMessage = function (user, text, nlps) {
   if (text.match(/webview/i))
     return sendAPI.webv(user,fallback);
 }
-// var adios = function (user, text, nlps) {
-//   if(text.match(/adios|bye/i))
-//     return sendAPI.adios(user, 'Adios '+ user.first_name+" ha sido un gusto!", fallback);
-//
-// }
-// var verWebvie = function(user,text,nlps){
-//   if (text.match(/webview/i))
-//     return sendAPI.webv(user,fallback);
-//     else {
-//       return unreconizedCall(user, "messaging.text", text);
-//     }
-// }
 
 var handleAttachments = function (user, attachments) {
   attachments.forEach(function (attachment) {
