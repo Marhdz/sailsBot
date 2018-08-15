@@ -99,7 +99,7 @@ module.exports = {
     this.send(messageData, done);
   },
   webv: function(user,done){
-    console.log("2here");
+    sails.log.info("2here");
     var messageData = {
       recipient:{
         id:user.fbId
