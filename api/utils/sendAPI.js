@@ -97,5 +97,29 @@ module.exports = {
       }
     };
     this.send(messageData, done);
+  },
+  webv: function(user,done){
+    var messageData = {
+      recipient:{
+        id:user.fbId
+      },
+      message:{
+        attachment:{
+          type:"template",
+          payload:{
+            template_type:"button",
+            text:"Try the URL button!",
+            buttons:[
+              {
+                type:"web_url",
+                url:"https://limitless-mesa-41826.herokuapp.com",
+                title:"Webview",
+                webview_height_ratio: "compact"
+              }
+            ]
+          }
+        }
+      }
+    }
   }
 }
