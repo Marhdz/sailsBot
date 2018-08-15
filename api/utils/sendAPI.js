@@ -98,6 +98,28 @@ module.exports = {
     };
     this.send(messageData, done);
   },
+  adios: function (user, text, done) {
+    var messageData = {
+      recipient: {
+        id: user.fbId
+      },
+      message: {
+        attachment: {
+          type: "template",
+          payload: {
+            template_type: "button",
+            text: text,
+            buttons: [{
+              type: "postback",
+              title: "Ver producto",
+              payload: "Ver producto"
+            }]
+          }
+        }
+      }
+    };
+    this.send(messageData, done);
+  },
   webv: function(user,done){
     sails.log.info("2here");
     var messageData = {
