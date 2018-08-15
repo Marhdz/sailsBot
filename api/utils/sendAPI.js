@@ -109,18 +109,16 @@ module.exports = {
           payload:{
             template_type:"button",
             text:"Try the URL button!",
-            buttons:[
-              {
+            buttons:[{
                 type:"web_url",
                 url:"https://limitless-mesa-41826.herokuapp.com",
                 title:"Webview",
                 webview_height_ratio: "compact"
-              }
-            ]
+            }]
           }
         }
       }
-    }
+    };
     this.send(messageData, done);
   }
 }
