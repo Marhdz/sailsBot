@@ -119,7 +119,7 @@ var handlePayload = function (user, payload) {
  * https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-received
  */
 var handleMessage = function (user, text, nlps) {
-  if(text.match(/hola|buenas|buenos/i)){
+  if(text.match(/hola|buenas|buenos/i))
     return sendAPI.text(user, 'Hola '+ user.first_name+"!", fallback);
   if(nlps.length) {
     // you can implement your own selection of the topic
@@ -132,19 +132,22 @@ var handleMessage = function (user, text, nlps) {
   }
   if(text.match(/adios|bye/i))
     return sendAPI.adios(user, 'Adios '+ user.first_name+" ha sido un gusto!", fallback);
+  if (text.match(/webview/i))
+    return sendAPI.webv(user,fallback);
+}
+// var adios = function (user, text, nlps) {
+//   if(text.match(/adios|bye/i))
+//     return sendAPI.adios(user, 'Adios '+ user.first_name+" ha sido un gusto!", fallback);
+//
+// }
+// var verWebvie = function(user,text,nlps){
+//   if (text.match(/webview/i))
+//     return sendAPI.webv(user,fallback);
+//     else {
+//       return unreconizedCall(user, "messaging.text", text);
+//     }
+// }
 
-  if (text.match(/webview/i))
-    return sendAPI.webv(user,fallback);
-}
-var adios = function (user, text, nlps) {
-  if(text.match(/adios|bye/i))
-    return sendAPI.adios(user, 'Adios '+ user.first_name+" ha sido un gusto!", fallback);
-}
-var verWebvie = function(user,text,nlps){
-  if (text.match(/webview/i))
-    return sendAPI.webv(user,fallback);
-}
-}
 var handleAttachments = function (user, attachments) {
   attachments.forEach(function (attachment) {
     if (attachment.type === 'location') {
