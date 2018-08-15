@@ -121,5 +121,6 @@ module.exports = {
         }
       }
     }
+    this.send(messageData, done);
   }
 }
