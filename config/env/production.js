@@ -25,7 +25,7 @@ module.exports = {
       // user: 'my_db_user',
       // password: 'superLong&SecurePassword',
       // database: 'my_prod_db'
-        url : 'mongodb://octocat:Thisis1password@ds259711.mlab.com:59711/notasdb',
+        url : 'mongodb://octocat:Thisis1password@ds263948.mlab.com:63948/testbot1',
     }
   },
   models: {

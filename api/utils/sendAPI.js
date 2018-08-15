@@ -76,7 +76,7 @@ module.exports = {
     };
     this.send(messageData, done);
   },
-  text: function (user, text, done) {
+  start: function (user, text, done) {
     var messageData = {
       recipient: {
         id: user.fbId
@@ -91,14 +91,20 @@ module.exports = {
               type: "postback",
               title: "Ver productos",
               payload: "Ver productos"
-            }]
+            },
+            {
+              type: "postback",
+              title: "Información",
+              payload: "Información"
+            }
+           ]
           }
         }
       }
     };
     this.send(messageData, done);
   },
-  adios: function (user, text, done) {
+  productos: function (user, text, done) {
     var messageData = {
       recipient: {
         id: user.fbId
@@ -109,6 +115,7 @@ module.exports = {
           payload: {
             template_type: "button",
             text: text,
+            //for productos
             buttons: [{
               type: "postback",
               title: "Ver producto",

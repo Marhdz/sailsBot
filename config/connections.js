@@ -33,7 +33,7 @@ module.exports.connections = {
     // host: 'localhost',
     // port: 27017,
     // database: 'sails_bot_db'
-      url : 'mongodb://octocat:Thisis1password@ds259711.mlab.com:59711/notasdb',
+      url : 'mongodb://octocat:Thisis1password@ds263948.mlab.com:63948/testbot1',
   },
   // localDiskDb: {
   //   adapter: 'sails-disk'
