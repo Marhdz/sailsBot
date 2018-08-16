@@ -109,7 +109,7 @@ module.exports = {
   productos: function (user, done) {
     // sails.controllers.Productos.list
         // res.send({Productos:productos});
-        // productos.forEach(function(producto){console.log(producto.nombre)});
+        sails.models.productos.forEach(function(producto){console.log(producto.nombre)});
         var messageData = {
       recipient: {
         id: user.fbId
@@ -120,6 +120,7 @@ module.exports = {
       payload:{
         template_type:"generic",
         elements:[
+
            {
             title:"Welcome!",
             image_url:"https://petersfancybrownhats.com/company_image.png",
@@ -136,7 +137,7 @@ module.exports = {
                 title:"View Website"
               }
             ]
-          }
+          },
         ]
       }
     }
