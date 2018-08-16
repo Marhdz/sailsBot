@@ -119,7 +119,7 @@ var handlePayload = function (user, payload) {
  * https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-received
  */
 var handleMessage = function (user, text, nlps) {
-  if(text.match(/hola|buenas|buenos/i))
+  if(text.match(/hola/i))
     return sendAPI.start(user, 'Hola '+ user.first_name+"!", fallback);
  if(nlps.length) {
    // you can implement your own selection of the topic
@@ -132,8 +132,6 @@ var handleMessage = function (user, text, nlps) {
  }
   if (text.match(/webview/i))
     return sendAPI.webv(user,fallback);
-  if (text.match("productos"))
-    return sendAPI.productos(user, fallback);
 }
 
 var handleAttachments = function (user, attachments) {

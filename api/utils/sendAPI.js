@@ -106,46 +106,6 @@ module.exports = {
     this.send(messageData, done);
   },
 
-  productos: function (user, done) {
-    // sails.controllers.Productos.list
-        // res.send({Productos:productos});
-        console.log(sails.models.productos.findAll());
-        // sails.models.productos.forEach(function(producto){console.log(producto.nombre)});
-        var messageData = {
-      recipient: {
-        id: user.fbId
-      },
-      message: {
-    attachment:{
-      type:"template",
-      payload:{
-        template_type:"generic",
-        elements:[
-
-           {
-            title:"Welcome!",
-            image_url:"https://petersfancybrownhats.com/company_image.png",
-            subtitle:"We have the right hat for everyone.",
-            default_action: {
-              type: "web_url",
-              url: "https://petersfancybrownhats.com/view?item=103",
-              webview_height_ratio: "tall",
-            },
-            buttons:[
-              {
-                type:"web_url",
-                url:"https://petersfancybrownhats.com",
-                title:"View Website"
-              }
-            ]
-          },
-        ]
-      }
-    }
-  }
-    };
-          this.send(messageData, done);
-  },
   webv: function(user,done){
     sails.log.info("2here");
     var messageData = {

@@ -12,7 +12,6 @@ module.exports = {
 							res.send(500, {error: 'Database Error'});
 					}
 					res.json(productos);
-					productos.forEach(function(producto){console.log(producto.nombre)});
 					// productos.forEach(function(producto){console.log(producto.nombre)});
 			});
 		}
