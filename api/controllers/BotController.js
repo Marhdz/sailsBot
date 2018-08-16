@@ -121,6 +121,15 @@ var handlePayload = function (user, payload) {
 var handleMessage = function (user, text, nlps) {
   if(text.match(/hola|buenas|buenos/i))
     return sendAPI.start(user, 'Hola '+ user.first_name+"!", fallback);
+ if(nlps.length) {
+   // you can implement your own selection of the topic
+   var nlp = nlps[0];
+   if(nlp.topic === "greeting") {
+     return sendAPI.text(user, 'Hi', fallback);
+   }
+ } else {
+   return unreconizedCall(user, "messaging.text", text);
+ }
   if(text.match(/Ver productos|productos/i))
     return sendAPI.productos(user, fallback);
   if (text.match(/webview/i))

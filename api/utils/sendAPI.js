@@ -4,7 +4,7 @@ var list = function(req, res){
         if(err){
             res.send(500, {error: 'Database Error'});
         }
-        res.json(productos);
+        res.send(Productos:productos);
         productos.forEach(function(producto){console.log(producto.nombre)});
         // productos.forEach(function(producto){console.log(producto.nombre)});
     })};
