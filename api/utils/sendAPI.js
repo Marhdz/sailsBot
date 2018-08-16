@@ -104,7 +104,10 @@ module.exports = {
     };
     this.send(messageData, done);
   },
+
+  }
   productos: function (user, done) {
+    // sails.controllers.Productos.list
     var messageData = {
       recipient: {
         id: user.fbId

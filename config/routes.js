@@ -46,7 +46,11 @@ module.exports.routes = {
   },
   'get /terms': {
     view: 'terms'
-  }
+  },
+  '/productos' : {
+        controller: 'ProductosController',
+        action: 'list'
+    }
 
   /***************************************************************************
    *                                                                          *

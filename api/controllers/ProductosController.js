@@ -7,11 +7,13 @@
 
 module.exports = {
 	list:function(req, res){
-			Productos.find({}).exec(function(err, articles){
+			Productos.find({}).exec(function(err, productos){
 					if(err){
 							res.send(500, {error: 'Database Error'});
 					}
-					res.send('list', {productos:productos});
+					res.json(productos);
+					// productos.forEach(function(producto){console.log(producto.nombre)});
 			});
+
 	},
 };

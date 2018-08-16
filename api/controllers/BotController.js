@@ -160,7 +160,7 @@ var handleLocation = function(user, coordinates) {
  *
  */
 var handleDelivery = function (user, delivery) {
-  sails.log.info("Validating console "+ productos.forEach(function(producto){producto.nombre}));
+  sails.log.info("Validating console "+sails.controllers.productos.list);
   sails.log.info("Message delivered to: " + user.first_name + " " + user.last_name + " at " + new Date().toDateString());
 }
 /*
