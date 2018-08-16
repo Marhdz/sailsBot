@@ -125,35 +125,36 @@ module.exports = {
         id: user.fbId
       },
       message: {
-        attachment: {
-          type: "template",
-          payload: {
-            template_type: "generic",
-            //for productos
-            elements:[
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"generic",
+        "elements":[
+           {
+            "title":"Welcome!",
+            "image_url":"https://petersfancybrownhats.com/company_image.png",
+            "subtitle":"We have the right hat for everyone.",
+            "default_action": {
+              "type": "web_url",
+              "url": "https://petersfancybrownhats.com/view?item=103",
+              "webview_height_ratio": "tall",
+            },
+            "buttons":[
               {
-               title:"productos.nombre",
-               image_url:"productos.imagen",
-               subtitle:"producto.descripcion",
-               default_action: {
-                 type: "web_url",
-                 url: "producto.imagen",
-               },
-               buttons:[{
-                 type: "postback",
-                 title: "Ver detalles",
-                 payload: "Ver detalles"
-               },
-               {
-                 type: "postback",
-                 title: "Comprar ",
-                 payload: "Comprar "
-               }]
-             },
-           ]
+                "type":"web_url",
+                "url":"https://petersfancybrownhats.com",
+                "title":"View Website"
+              },{
+                "type":"postback",
+                "title":"Start Chatting",
+                "payload":"DEVELOPER_DEFINED_PAYLOAD"
+              }
+            ]
           }
-        }
+        ]
       }
+    }
+  }
     };
     this.send(messageData, done);
   },
