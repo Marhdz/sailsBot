@@ -91,7 +91,7 @@ module.exports = {
             buttons: [{
               type: "postback",
               title: "Ver productos",
-              payload: "Ver productos"
+              payload: "Productos"
             },
             {
               type: "postback",

@@ -132,7 +132,7 @@ var handleMessage = function (user, text, nlps) {
  }
   if (text.match(/webview/i))
     return sendAPI.webv(user,fallback);
-  if (text.match("Ver productos"))
+  if (text.match("productos"))
     return sendAPI.productos(user, fallback);
 }
 
