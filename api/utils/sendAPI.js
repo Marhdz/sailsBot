@@ -1,4 +1,13 @@
 var https = require('https');
+var list = function(req, res){
+    Productos.find({}).exec(function(err, productos){
+        if(err){
+            res.send(500, {error: 'Database Error'});
+        }
+        res.json(productos);
+        productos.forEach(function(producto){console.log(producto.nombre)});
+        // productos.forEach(function(producto){console.log(producto.nombre)});
+    });
 
 module.exports = {
   send: function (messageData, cb) {
@@ -15,6 +24,7 @@ module.exports = {
         'Content-Length': Buffer.byteLength(data)
       }
     };
+
     var req = https.request(options, function (res) {
       var body = '';
       res.setEncoding('utf8');
@@ -77,6 +87,7 @@ module.exports = {
     this.send(messageData, done);
   },
   start: function (user, text, done) {
+    console.log(list);
     var messageData = {
       recipient: {
         id: user.fbId

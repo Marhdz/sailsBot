@@ -6,14 +6,16 @@
  */
 
 module.exports = {
-	list:function(req, res){
-			Productos.find({}).exec(function(err, productos){
-					if(err){
-							res.send(500, {error: 'Database Error'});
-					}
-					res.json(productos);
-					// productos.forEach(function(producto){console.log(producto.nombre)});
-			});
+	// list:function(req, res){
+	// 		Productos.find({}).exec(function(err, productos){
+	// 				if(err){
+	// 						res.send(500, {error: 'Database Error'});
+	// 				}
+	// 				res.json(productos);
+	// 				productos.forEach(function(producto){console.log(producto.nombre)});
+	// 				// productos.forEach(function(producto){console.log(producto.nombre)});
+	// 		});
+
 
 	},
 };
