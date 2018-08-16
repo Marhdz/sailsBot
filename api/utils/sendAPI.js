@@ -1,13 +1,4 @@
 var https = require('https');
-var list = function(req, res){
-    Productos.find({}).exec(function(err, productos){
-        if(err){
-            res.send(500, {error: 'Database Error'});
-        }
-        res.send({Productos:productos});
-        productos.forEach(function(producto){console.log(producto.nombre)});
-        // productos.forEach(function(producto){console.log(producto.nombre)});
-    })};
 
 module.exports = {
   send: function (messageData, cb) {
