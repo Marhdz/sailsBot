@@ -6,6 +6,12 @@
  */
 
 module.exports = {
-	
+	list:function(req, res){
+			Productos.find({}).exec(function(err, articles){
+					if(err){
+							res.send(500, {error: 'Database Error'});
+					}
+					res.send('list', {productos:productos});
+			});
+	},
 };
-
