@@ -118,6 +118,12 @@ module.exports = {
 
   productos: function (user, done) {
     // sails.controllers.Productos.list
+    Productos.find({}).exec(function(err, productos){
+        if(err){
+            res.send(500, {error: 'Database Error'});
+        }
+        // res.send({Productos:productos});
+        // productos.forEach(function(producto){console.log(producto.nombre)});
     var messageData = {
       recipient: {
         id: user.fbId
@@ -130,12 +136,12 @@ module.exports = {
             //for productos
             elements:[
               {
-               title:"",
-               image_url:"",
-               subtitle:"",
+               title:"productos.nombre",
+               image_url:"productos.imagen",
+               subtitle:"producto.descripcion",
                default_action: {
                  type: "web_url",
-                 url: "",
+                 url: "producto.imagen",
                },
                buttons:[{
                  type: "postback",
@@ -153,6 +159,7 @@ module.exports = {
         }
       }
     };
+  }
     this.send(messageData, done);
   },
   webv: function(user,done){
