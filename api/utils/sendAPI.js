@@ -91,7 +91,7 @@ module.exports = {
             buttons: [{
               type:"web_url",
               title:"Ver Productos",
-              url:"http://agile-meadow-58267.herokuapp.com/producto",
+              url:"https://agile-meadow-58267.herokuapp.com/producto",
               messenger_extensions:true,
               webview_height_ratio: "tall"
             },
