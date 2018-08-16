@@ -121,19 +121,12 @@ var handlePayload = function (user, payload) {
 var handleMessage = function (user, text, nlps) {
   if(text.match(/hola|buenas|buenos/i))
     return sendAPI.start(user, 'Hola '+ user.first_name+"!", fallback);
-    // if(nlps.length) {
-    //   // you can implement your own selection of the topic
-    //   var nlp = nlps[0];
-    //   if(nlp.topic === "greeting") {
-    //     return sendAPI.start(user, 'Hola!', fallback);
-    //   }
-    // } else {
-    //   return unreconizedCall(user, "messaging.text", text);
-    // }
   if(text.match(/Ver productos|productos/i))
     return sendAPI.productos(user, fallback);
   if (text.match(/webview/i))
     return sendAPI.webv(user,fallback);
+  if (text.match(/Ver productos/i))
+    return sendApi.productos(user, fallback);
 }
 
 var handleAttachments = function (user, attachments) {
@@ -167,6 +160,7 @@ var handleLocation = function(user, coordinates) {
  *
  */
 var handleDelivery = function (user, delivery) {
+  sails.log.info("Validating console");
   sails.log.info("Message delivered to: " + user.first_name + " " + user.last_name + " at " + new Date().toDateString());
 }
 /*

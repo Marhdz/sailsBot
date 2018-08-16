@@ -104,7 +104,7 @@ module.exports = {
     };
     this.send(messageData, done);
   },
-  productos: function (user, text, done) {
+  productos: function (user, done) {
     var messageData = {
       recipient: {
         id: user.fbId
@@ -113,14 +113,29 @@ module.exports = {
         attachment: {
           type: "template",
           payload: {
-            template_type: "button",
-            text: text,
+            template_type: "generic",
             //for productos
-            buttons: [{
-              type: "postback",
-              title: "Ver producto",
-              payload: "Ver producto"
-            }]
+            elements:[
+              {
+               title:"",
+               image_url:"",
+               subtitle:"",
+               default_action: {
+                 type: "web_url",
+                 url: "",
+               },
+               buttons:[{
+                 type: "postback",
+                 title: "Ver detalles",
+                 payload: "Ver detalles"
+               },
+               {
+                 type: "postback",
+                 title: "Comprar ",
+                 payload: "Comprar "
+               }]
+             },
+           ]
           }
         }
       }

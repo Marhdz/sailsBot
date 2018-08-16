@@ -39,6 +39,15 @@ module.exports = {
     gender: {
       type: "string"
     },
+    nombre: {
+      type: "string"
+    },
+    dui: {
+      type: "string"
+    },
+    telefono: {
+      type: "integer"
+    },
     messages: {
       collection: 'message',
       via: 'sender'
@@ -76,4 +85,3 @@ module.exports = {
     req.end();
   }
 };
-
