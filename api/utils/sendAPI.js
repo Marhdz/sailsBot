@@ -118,10 +118,6 @@ module.exports = {
 
   productos: function (user, done) {
     // sails.controllers.Productos.list
-    Productos.find({}).exec(function(err, productos){
-        if(err){
-            res.send(500, {error: 'Database Error'});
-        }
         // res.send({Productos:productos});
         // productos.forEach(function(producto){console.log(producto.nombre)});
     var messageData = {
@@ -159,8 +155,7 @@ module.exports = {
         }
       }
     };
-
-    this.send(messageData, done);})
+    this.send(messageData, done);
   },
   webv: function(user,done){
     sails.log.info("2here");
