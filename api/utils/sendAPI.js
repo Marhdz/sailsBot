@@ -83,6 +83,34 @@ module.exports = {
         id: user.fbId
       },
       message: {
+        attachment: {
+          type: "template",
+          payload: {
+            template_type: "button",
+            text: text,
+            buttons: [{
+              type: "postback",
+              title: "Ver productos",
+              payload: "Productos"
+            },
+            {
+              type: "postback",
+              title: "Información",
+              payload: "Información"
+            }
+           ]
+          }
+        }
+      }
+    };
+    this.send(messageData, done);
+  },
+
+  productos: function (user, done) {
+    // sails.controllers.Productos.list
+        // res.send({Productos:productos});
+        // productos.forEach(function(producto){console.log(producto.nombre)});
+        var messageData = {
       recipient: {
         id: user.fbId
       },
@@ -114,32 +142,6 @@ module.exports = {
     }
   }
     };
-    this.send(messageData, done);
-  },
-
-  productos: function (user, done) {
-    // sails.controllers.Productos.list
-        // res.send({Productos:productos});
-        // productos.forEach(function(producto){console.log(producto.nombre)});
-        var messageData = {
-          recipient: {
-            id: user.fbId
-          },
-          message: {
-            attachment: {
-              type: "template",
-              payload: {
-                template_type: "button",
-                text: "Hola!",
-                buttons: [{
-                  type: "postback",
-                  title: "Start",
-                  payload: "start"
-                }]
-              }
-            }
-          }
-        };
           this.send(messageData, done);
   },
   webv: function(user,done){
