@@ -15,6 +15,6 @@ module.exports = {
 					productos.forEach(function(producto){console.log(producto.nombre)});
 					// productos.forEach(function(producto){console.log(producto.nombre)});
 			});
-
+		}
 
 };
