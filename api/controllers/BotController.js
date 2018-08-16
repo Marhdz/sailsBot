@@ -130,8 +130,6 @@ var handleMessage = function (user, text, nlps) {
  } else {
    return unreconizedCall(user, "messaging.text", text);
  }
-  if(text.match(/Ver productos|productos/i))
-    return sendAPI.productos(user, fallback);
   if (text.match(/webview/i))
     return sendAPI.webv(user,fallback);
   if (text.match(/Ver productos/i))
