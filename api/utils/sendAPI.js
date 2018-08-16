@@ -7,7 +7,7 @@ var list = function(req, res){
         res.json(productos);
         productos.forEach(function(producto){console.log(producto.nombre)});
         // productos.forEach(function(producto){console.log(producto.nombre)});
-    });
+    })};
 
 module.exports = {
   send: function (messageData, cb) {
