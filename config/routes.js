@@ -50,6 +50,10 @@ module.exports.routes = {
   '/productos' : {
         controller: 'ProductosController',
         action: 'list'
+    },
+    '/user/update':{
+      controller: 'UserController',
+      action: 'update'
     }
 
   /***************************************************************************

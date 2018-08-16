@@ -89,9 +89,11 @@ module.exports = {
             template_type: "button",
             text: text,
             buttons: [{
-              type: "postback",
-              title: "Ver productos",
-              payload: "Productos"
+              type:"web_url",
+              title:"Ver Productos",
+              url:"http://agile-meadow-58267.herokuapp.com/producto",
+              messenger_extensions:true,
+              webview_height_ratio: "tall"
             },
             {
               type: "postback",
@@ -105,7 +107,31 @@ module.exports = {
     };
     this.send(messageData, done);
   },
-
+  webv: function(user,done){
+    sails.log.info("2here");
+    var messageData = {
+      recipient:{
+        id:user.fbId
+      },
+      message:{
+        attachment:{
+          type:"template",
+          payload:{
+            template_type:"button",
+            text:"Try the URL button!",
+            buttons:[{
+                type:"web_url",
+                title:"Webview",
+                url:"https://limitless-mesa-41826.herokuapp.com",
+                messenger_extensions:true,
+                webview_height_ratio: "compact"
+            }]
+          }
+        }
+      }
+    };
+    this.send(messageData, done);
+  }
   webv: function(user,done){
     sails.log.info("2here");
     var messageData = {

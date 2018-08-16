@@ -1,7 +1,7 @@
 module.exports = {
   attributes: {
     sender: {
-      model: 'user'
+      model: 'usuario'
     },
     fecha: {
       type: "string",
