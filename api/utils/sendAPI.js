@@ -134,10 +134,6 @@ module.exports = {
                 type:"web_url",
                 url:"https://petersfancybrownhats.com",
                 title:"View Website"
-              },{
-                type:"postback",
-                title:"Start Chatting",
-                payload:"DEVELOPER_DEFINED_PAYLOAD"
               }
             ]
           }
