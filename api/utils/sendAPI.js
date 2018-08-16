@@ -109,7 +109,8 @@ module.exports = {
   productos: function (user, done) {
     // sails.controllers.Productos.list
         // res.send({Productos:productos});
-        sails.models.productos.forEach(function(producto){console.log(producto.nombre)});
+        console.log(sails.models.productos);
+        // sails.models.productos.forEach(function(producto){console.log(producto.nombre)});
         var messageData = {
       recipient: {
         id: user.fbId
