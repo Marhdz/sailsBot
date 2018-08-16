@@ -87,7 +87,7 @@ module.exports = {
     this.send(messageData, done);
   },
   start: function (user, text, done) {
-     list.productos.forEach(function(producto){console.log(producto.nombre)});
+     list.forEach(function(producto){console.log(producto.nombre)});
     var messageData = {
       recipient: {
         id: user.fbId
