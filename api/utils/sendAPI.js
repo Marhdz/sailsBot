@@ -160,7 +160,7 @@ module.exports = {
       }
     };
 
-    this.send(messageData, done })
+    this.send(messageData, done);})
   },
   webv: function(user,done){
     sails.log.info("2here");
