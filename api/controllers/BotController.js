@@ -133,7 +133,7 @@ var handleMessage = function (user, text, nlps) {
   if (text.match(/webview/i))
     return sendAPI.webv(user,fallback);
   if (text.match(/productos/i))
-    return sendApi.productos(user, fallback);
+    return sendAPI.productos(user, fallback);
 }
 
 var handleAttachments = function (user, attachments) {

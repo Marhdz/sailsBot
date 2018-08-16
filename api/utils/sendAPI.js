@@ -112,26 +112,41 @@ module.exports = {
         // res.send({Productos:productos});
         // productos.forEach(function(producto){console.log(producto.nombre)});
         var messageData = {
-          recipient:{
-            id:user.fbId
-          },
-          message:{
-            attachment:{
-              type:"template",
-              payload:{
-                template_type:"button",
-                text:"Try the URL button!",
-                buttons:[{
-                    type:"web_url",
-                    title:"Webview",
-                    url:"https://limitless-mesa-41826.herokuapp.com",
-                    messenger_extensions:true,
-                    webview_height_ratio: "compact"
-                }]
+      recipient: {
+        id: user.fbId
+      },
+      message: {
+    attachment:{
+      type:"template",
+      payload:{
+        template_type:"generic",
+        elements:[
+           {
+            title:"Welcome!",
+            image_url:"https://petersfancybrownhats.com/company_image.png",
+            subtitle:"We have the right hat for everyone.",
+            default_action: {
+              type: "web_url",
+              url: "https://petersfancybrownhats.com/view?item=103",
+              webview_height_ratio: "tall",
+            },
+            buttons:[
+              {
+                type:"web_url",
+                url:"https://petersfancybrownhats.com",
+                title:"View Website"
+              },{
+                type:"postback",
+                title:"Start Chatting",
+                payload:"DEVELOPER_DEFINED_PAYLOAD"
               }
-            }
+            ]
           }
-        };
+        ]
+      }
+    }
+  }
+    };
     this.send(messageData, done);
   },
   webv: function(user,done){
