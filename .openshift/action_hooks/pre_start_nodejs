@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/ bin/bash
 export NODE_ENV=production
 
 if [ -f "${OPENSHIFT_REPO_DIR}"/Gruntfile.js ]; then
